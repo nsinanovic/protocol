@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-12">
+        <p>My Heroes</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let hero of heroes">
+                    <th>{{hero.id}}</th>
+                    <td>
+                        <button class="btn btn-link" (click)="onMenu(hero)">{{hero.name}}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

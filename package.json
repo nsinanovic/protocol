@@ -1,0 +1,93 @@
+{
+  "name": "angular5-electron-sqlite3-bootstrap4-webpack",
+  "productName": "Angular5-Electron-Sqlite3-Bootstrap4-Webpack",
+  "version": "1.0.3",
+  "description": "An Electron application using Angular 6+, Sqlite3, Bootstrap 4+ and WebPack 4+",
+  "author": "pamtbaau",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "karma start ./config/karma.conf.js",
+    "build": "webpack --config config/webpack.dev.js --watch",
+    "build:once": "webpack --config config/webpack.dev.js",
+    "build:prod": "webpack --config config/webpack.prod.js",
+    "postinstall": "electron-builder install-app-deps",
+    "package": "electron-builder ."
+  },
+  "license": "MIT",
+  "build": {
+    "appId": "com.pamtbaau.angular5-electron-sqlite3-bootstrap4-webpack",
+    "productName": "Angular5-Electron-Sqlite3-Bootstrap4-Webpack",
+    "directories": {
+      "output": "build"
+    },
+    "nsis": {
+      "oneClick": false
+    },
+    "files": [
+      "!**/.vscode",
+      "!**/build",
+      "!**/config",
+      "!**/assets/data",
+      "!**/src"
+    ],
+    "extraResources": [
+      {
+        "from": "src/assets/data",
+        "to": "dist/assets/data",
+        "filter": "database*"
+      }
+    ]
+  },
+  "dependencies": {
+    "@angular/common": "^6.1.6",
+    "@angular/compiler": "^6.1.6",
+    "@angular/core": "^6.1.6",
+    "@angular/forms": "^6.1.6",
+    "@angular/http": "^6.1.6",
+    "@angular/platform-browser": "^6.1.6",
+    "@angular/platform-browser-dynamic": "^6.1.6",
+    "@angular/router": "^6.1.6",
+    "bootstrap": "^4.1.1",
+    "core-js": "^2.5.7",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3",
+    "rxjs": "^6.2.1",
+    "sqlite3": "^4.0.0",
+    "zone.js": "^0.8.26"
+  },
+  "devDependencies": {
+    "@types/core-js": "^2.5.0",
+    "@types/jasmine": "^2.8.8",
+    "@types/node": "^10.3.4",
+    "@types/sqlite3": "^3.1.3",
+    "angular2-template-loader": "^0.6.2",
+    "autoprefixer": "^8.6.3",
+    "awesome-typescript-loader": "^5.2.0",
+    "copy-webpack-plugin": "^4.5.1",
+    "electron": "^2.0.8",
+    "electron-builder": "^20.15.1",
+    "electron-reload": "^1.2.2",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "jasmine-core": "^3.1.0",
+    "karma": "^3.0.0",
+    "karma-electron": "^6.0.0",
+    "karma-jasmine": "^1.1.2",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "^0.0.32",
+    "karma-webpack": "^3.0.0",
+    "node-sass": "^4.9.0",
+    "postcss-loader": "^2.1.5",
+    "precss": "^3.1.2",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2",
+    "webpack": "^4.12.0",
+    "webpack-command": "0.2.1",
+    "webpack-merge": "^4.1.3"
+  }
+}
