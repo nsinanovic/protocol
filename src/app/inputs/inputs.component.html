@@ -1,13 +1,23 @@
 <div class="row">
     <div class="col-md-12">
+        <br>
         <p>Ulazni dokument</p>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-12">
-        <form>
-            <input class="form-control" type="text" [(ngModel)]="input.name" name="name" />
-            <button (click)="insertInput()" class="btn btn-success">Spasi ulazni dokument</button>
-        </form>
+<form>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Predmet</label>
+                <input class="form-control" type="text" [(ngModel)]="input.subject" name="subject" />                
+            </div>
+            <div class="form-group">                   
+                    <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>   
+                    <button class="btn btn-primary" (click)="fileInput.click()">Odaberi skenirani ulazni dokument</button>             
+                </div>
+            <div class="form-group">                
+                <button (click)="insertInput()" class="btn btn-success">Spasi ulazni dokument</button>
+            </div>
+        </div>
     </div>
-</div>
+</form>

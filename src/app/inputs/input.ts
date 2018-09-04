@@ -7,8 +7,17 @@ import { TheDb } from '../model/thedb';
  * @class Input
  */
 export class Input {
-    public id = -1;
-    public name = '';
+    public id: number;
+    public subject: string;
+    public filename: string;
+    public baseNumber: string;
+    public dateReceived: Date;
+    public mark: string;
+    public userId: number;
+    public customerId: number;
+    public dateCreated: Date;
+
+
 
     public static get(id: number): Promise<Input> {
         const sql = 'SELECT * FROM inputs WHERE id = $id';
@@ -25,7 +34,7 @@ export class Input {
     }
 
     public static getAll(): Promise<Input[]> {
-        const sql = `SELECT * FROM inputs ORDER BY name`;
+        const sql = `SELECT * FROM inputs ORDER BY dateReceived`;
         const values = {};
 
         return TheDb.selectAll(sql, values)
@@ -41,11 +50,18 @@ export class Input {
 
     public insert(): Promise<void> {
         const sql = `
-            INSERT INTO inputs (name)
-            VALUES($name)`;
+            INSERT INTO inputs (subject, filename, baseNumber, dateReceived, mark, userId, customerId, dateCreated)
+            VALUES($subject, $filename, $baseNumber, $dateReceived, $mark, $userId, $customerId, $dateCreated)`;
 
         const values = {
-            $name: this.name,
+            $subject: this.subject,
+            $filename: this.filename,
+            $baseNumber: this.baseNumber,
+            $dateReceived: this.dateReceived,
+            $mark: this.mark,
+            $userId: this.userId,
+            $customerId: this.customerId,
+            $dateCreated: this.dateCreated
         };
 
         return TheDb.insert(sql, values)
@@ -61,12 +77,19 @@ export class Input {
     public update(): Promise<void> {
         const sql = `
             UPDATE inputs
-               SET name = $name
+               SET subject = $subject, filename = $filename, baseNumber = $baseNumber, dateReceived = $dateReceived, mark = $mark, userId = $userId, customerId = $customerId, dateCreated = $dateCreated
              WHERE id = $id`;
 
-        const values = {
-            $name: this.name,
-        };
+             const values = {
+                $subject: this.subject,
+                $filename: this.filename,
+                $baseNumber: this.baseNumber,
+                $dateReceived: this.dateReceived,
+                $mark: this.mark,
+                $userId: this.userId,
+                $customerId: this.customerId,
+                $dateCreated: this.dateCreated
+            };
 
         return TheDb.update(sql, values)
             .then((result) => {
@@ -94,7 +117,14 @@ export class Input {
 
     public fromRow(row: object): Input {
         this.id = row['id'];
-        this.name = row['name'];
+        this.filename = row['filename'];
+        this.subject = row['subject'];
+        this.baseNumber = row['baseNumber'];
+        this.dateReceived = row['dateReceived'];
+        this.mark = row['mark'];
+        this.userId = row['userId'];
+        this.customerId = row['customerId'];
+        this.dateCreated = row['dateCreated'];
 
         return this;
     }

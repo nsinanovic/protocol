@@ -9,14 +9,18 @@ export class InputsComponent implements OnInit {
     input: Input;
 
     ngOnInit() {
-       this.input = new Input;
-       this.input.name = '';
+        this.input = new Input;
     }
 
     public insertInput() {
+        console.log(this.input);
         this.input.insert()
             .then(() => {
                 console.log("Inserted!");
             });
+    }
+
+    public onFileChanged(event: any) {
+        this.input.filename = event.target.files[0].name;
     }
 }

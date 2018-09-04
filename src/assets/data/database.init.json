@@ -23,12 +23,6 @@
 		        "id": "15",
 		        "name": "Magneta"
 		    }
-		],
-		"inputs": [
-			{ 
-				"id": 1, 
-				"name": "Prvi dokument"
-			}
-		]
+		]		
 	}	
 }

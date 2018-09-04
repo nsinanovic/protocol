@@ -11,7 +11,14 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS `inputs`;
 CREATE TABLE IF NOT EXISTS `inputs` (
 	`id`	INTEGER NOT NULL,
-	`name`	TEXT NOT NULL,
+	`subject`	TEXT NOT NULL,
+	`filename`	TEXT NOT NULL,
+	`baseNumber`	TEXT NOT NULL,
+	`mark`	TEXT NOT NULL,
+	`dateReceived`	DATE NOT NULL,
+	`userId`	INTEGER NOT NULL,
+	`customerId`	INTEGER NOT NULL,
+	`dateCreated`	DATE NOT NULL,
 	PRIMARY KEY(`id`)
 );
 COMMIT;

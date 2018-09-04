@@ -41,9 +41,9 @@
 <div class="container">
     <p *ngIf="!connected" class="text-center"><br><br>Ucitavanje...</p>
     <router-outlet *ngIf="connected"></router-outlet>
-    <div class="row" *ngIf="connected">
+    <!-- <div class="row" *ngIf="connected">
         <div class="col-md-12">
             <button class="btn btn-outline-primary" (click)="onRestoreDb()">Restore Db</button>
         </div>
-    </div>
+    </div> -->
 </div>
