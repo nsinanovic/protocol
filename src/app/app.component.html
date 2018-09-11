@@ -8,14 +8,23 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home
+                <a class="nav-link" href="#">Protokol
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" routerLink="inputs" routerLinkActive="active">Ulazni dokument</a>
+                <a class="nav-link" href="#" routerLink="inputs" routerLinkActive="active">Ulaz</a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLink="outputs" routerLinkActive="active">Izlaz</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLink="customers" routerLinkActive="active">Korisnici</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLink="users" routerLinkActive="active">Administratori</a>
+            </li>
+            <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     Dropdown
@@ -29,17 +38,19 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
+            </li> -->
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <!-- <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        </form> -->
     </div>
 </nav>
 
 <div class="container">
-    <p *ngIf="!connected" class="text-center"><br><br>Ucitavanje...</p>
+    <p *ngIf="!connected" class="text-center">
+        <br>
+        <br>Učitavanje...</p>
     <router-outlet *ngIf="connected"></router-outlet>
     <!-- <div class="row" *ngIf="connected">
         <div class="col-md-12">

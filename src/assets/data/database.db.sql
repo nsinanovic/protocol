@@ -19,6 +19,8 @@ CREATE TABLE IF NOT EXISTS `inputs` (
 	`userId`	INTEGER NOT NULL,
 	`customerId`	INTEGER NOT NULL,
 	`dateCreated`	DATE NOT NULL,
+	`filepath`	TEXT NOT NULL,
+	`uniquefilename`	TEXT NOT NULL
 	PRIMARY KEY(`id`)
 );
 COMMIT;

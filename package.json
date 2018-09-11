@@ -1,9 +1,9 @@
 {
-  "name": "angular5-electron-sqlite3-bootstrap4-webpack",
-  "productName": "Angular5-Electron-Sqlite3-Bootstrap4-Webpack",
+  "name": "protokol",
+  "productName": "Protokol",
   "version": "1.0.3",
-  "description": "An Electron application using Angular 6+, Sqlite3, Bootstrap 4+ and WebPack 4+",
-  "author": "pamtbaau",
+  "description": "Protokol, Arhiva, Evidencija",
+  "author": "Nusreta Sinanovic",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
@@ -16,8 +16,8 @@
   },
   "license": "MIT",
   "build": {
-    "appId": "com.pamtbaau.angular5-electron-sqlite3-bootstrap4-webpack",
-    "productName": "Angular5-Electron-Sqlite3-Bootstrap4-Webpack",
+    "appId": "Protokol",
+    "productName": "Protokol",
     "directories": {
       "output": "build"
     },

@@ -16,6 +16,8 @@ export class Input {
     public userId: number;
     public customerId: number;
     public dateCreated: Date;
+    public filepath: string;
+    public uniquefilename: string;
 
 
 
@@ -50,8 +52,8 @@ export class Input {
 
     public insert(): Promise<void> {
         const sql = `
-            INSERT INTO inputs (subject, filename, baseNumber, dateReceived, mark, userId, customerId, dateCreated)
-            VALUES($subject, $filename, $baseNumber, $dateReceived, $mark, $userId, $customerId, $dateCreated)`;
+            INSERT INTO inputs (subject, filename, baseNumber, dateReceived, mark, userId, customerId, dateCreated, filepath, uniquefilename)
+            VALUES($subject, $filename, $baseNumber, $dateReceived, $mark, $userId, $customerId, $dateCreated, $filepath, $uniquefilename)`;
 
         const values = {
             $subject: this.subject,
@@ -61,7 +63,9 @@ export class Input {
             $mark: this.mark,
             $userId: this.userId,
             $customerId: this.customerId,
-            $dateCreated: this.dateCreated
+            $dateCreated: this.dateCreated,
+            $filepath: this.filepath,
+            $uniquefilename: this.uniquefilename
         };
 
         return TheDb.insert(sql, values)
@@ -77,7 +81,7 @@ export class Input {
     public update(): Promise<void> {
         const sql = `
             UPDATE inputs
-               SET subject = $subject, filename = $filename, baseNumber = $baseNumber, dateReceived = $dateReceived, mark = $mark, userId = $userId, customerId = $customerId, dateCreated = $dateCreated
+               SET subject = $subject, filename = $filename, baseNumber = $baseNumber, dateReceived = $dateReceived, mark = $mark, userId = $userId, customerId = $customerId, dateCreated = $dateCreated, filepath = $filepath, uniquefilename = $uniquefilename
              WHERE id = $id`;
 
              const values = {
@@ -88,7 +92,9 @@ export class Input {
                 $mark: this.mark,
                 $userId: this.userId,
                 $customerId: this.customerId,
-                $dateCreated: this.dateCreated
+                $dateCreated: this.dateCreated,
+                $filepath: this.filepath,
+                $uniquefilename: this.uniquefilename
             };
 
         return TheDb.update(sql, values)
@@ -125,6 +131,8 @@ export class Input {
         this.userId = row['userId'];
         this.customerId = row['customerId'];
         this.dateCreated = row['dateCreated'];
+        this.filepath = row['filepath'];
+        this.uniquefilename = row['uniquefilename'];
 
         return this;
     }

@@ -1,22 +1,51 @@
 <div class="row">
     <div class="col-md-12">
         <br>
-        <p>Ulazni dokument</p>
+        <h4>Novi ulazni dokument</h4>
+        <br>
     </div>
 </div>
 <form>
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label>Predmet</label>
-                <input class="form-control" type="text" [(ngModel)]="input.subject" name="subject" />                
+                <label>Osnovni broj</label>
+                <input class="form-control" type="text" [(ngModel)]="input.baseNumber" name="baseNumber" />
             </div>
-            <div class="form-group">                   
-                    <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>   
-                    <button class="btn btn-primary" (click)="fileInput.click()">Odaberi skenirani ulazni dokument</button>             
-                </div>
-            <div class="form-group">                
-                <button (click)="insertInput()" class="btn btn-success">Spasi ulazni dokument</button>
+            <div class="form-group">
+                <label>Predmet</label>
+                <input class="form-control" type="text" [(ngModel)]="input.subject" name="subject" />
+            </div>
+            <div class="form-group">
+                <label>Skenirani ulazni dokument</label><br>
+                <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+                <button class="btn btn-primary" (click)="fileInput.click()">Odaberi</button>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Pošiljalac</label>
+                <select class="form-control" [(ngModel)]="input.customerId" name="customerId">
+                    <option *ngFor="let customer of customers" [ngValue]="customer.id">
+                        {{ customer.firstname }} {{ customer.lastname }} {{ customer.firm }}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Datum prijema</label>
+                <input class="form-control" type="date" [(ngModel)]="input.dateReceived" name="dateReceived" />
+            </div>
+            <div class="form-group">
+                <label>Razvod oznaka</label>
+                <input class="form-control" type="text" [(ngModel)]="input.mark" name="mark" />
+            </div>
+
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <button (click)="insertInput()" [disabled]="!input.uniquefilename || !input.filepath ||!input.baseNumber || !input.subject || !input.mark || !input.dateReceived || !input.customerId ||!input.filename" class="btn btn-success pull-right">Spasi ulazni dokument</button>
             </div>
         </div>
     </div>
